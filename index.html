@@ -3,21 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
+    <title>My Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h1 {
+            font-weight: 600;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 15px 0;
+            transition: transform 0.2s ease-in-out;
+        }
+        .project-card:hover {
+            transform: scale(1.02);
+        }
+        .project-card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .project-card p {
+            font-size: 14px;
+            color: #666;
+        }
+        .project-card a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZSP6Z9HQM"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', 'G-KZSP6Z9HQM');
+        gtag('config', 'G-KZSP6Z9HQM');
     </script>
 </head>
 <body>
-    <h1>My Projects</h1>
-    <ul>
-        <li><a href="https://github.com/nupsea/mlzc-movie-pred" onclick="gtag('event', 'click', { 'event_category': 'Repository', 'event_label': 'mlzc-movie-pred' });">Movie Rating Prediction</a></li>
-        <li><a href="https://github.com/nupsea/mlzc-ipl-pred" onclick="gtag('event', 'click', { 'event_category': 'Repository', 'event_label': 'mlzc-ipl-pred' });">IPL Chase Prediction</a></li>
-    </ul>
+
+    <div class="container">
+        <h1>My Data Projects</h1>
+        <p>Discover a selection of my AI/ML learning projects. Click on any project to explore further!</p>
+
+        <div class="project-card">
+            <h2>🎬 Movie Rating Prediction</h2>
+            <p>A machine learning model to predict movie ratings based on various factors like reviews and genre.</p>
+            <a href="https://github.com/nupsea/mlzc-movie-pred" onclick="gtag('event', 'click', { 'event_category': 'Repository', 'event_label': 'mlzc-movie-pred' });">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
+            <h2>🏏 IPL Chase Prediction</h2>
+            <p>AI-powered prediction model to determine the chances of winning an IPL chase based on match data.</p>
+            <a href="https://github.com/nupsea/mlzc-ipl-pred" onclick="gtag('event', 'click', { 'event_category': 'Repository', 'event_label': 'mlzc-ipl-pred' });">View on GitHub →</a>
+        </div>
+    </div>
+
 </body>
 </html>
