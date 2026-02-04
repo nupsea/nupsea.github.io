@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Template for adding new interests. 
+// You can add more items to this list.
+// types: 'Philosophy', 'Art', 'Idea', 'Reading', 'Travel', etc.
+const interests = [
+  {
+    title: "The Art of Slow Thinking",
+    type: "Philosophy",
+    description: "Reflecting on the importance of deep work and slow thinking in an age of instant gratification.",
+    // link: "/blog/slow-thinking" // Optional: Link to a blog post or external site
+  },
+  {
+    title: "Photography",
+    type: "Hobby",
+    description: "Capturing moments from my travels. A collection of street photography and landscapes.",
+    link: "#" 
+  },
+  {
+    title: "Systems Thinking in Daily Life",
+    type: "Idea",
+    description: "Applying engineering principles to organize daily habits and routines.",
+  }
+];
+---
+
+<Layout>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-16 text-center">
+      <h1 class="text-4xl font-extrabold text-slate-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+        Other Interests
+      </h1>
+      <p class="mt-5 max-w-xl mx-auto text-xl text-slate-500">
+        Exploring ideas beyond code. Philosophy, art, psychology, and random musings.
+      </p>
+    </header>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {interests.map((item) => (
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+          <div class="mb-4">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800">
+              {item.type}
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">
+            {item.link ? (
+               <a href={item.link} class="hover:text-blue-600 transition-colors">
+                 {item.title} &rarr;
+               </a>
+            ) : (
+              item.title
+            )}
+          </h3>
+          <p class="text-slate-600 leading-relaxed flex-grow">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Placeholder for future expansion -->
+    <div class="mt-20 text-center border-t border-slate-200 pt-10">
+        <p class="text-slate-400 italic">More thoughts and collections coming soon...</p>
+    </div>
+  </div>
+</Layout>

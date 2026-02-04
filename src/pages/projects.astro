@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projectGroups = [
+  {
+    title: "🏏 Chase Prediction Projects",
+    description: "Predicting T20 match outcomes in real-time using streaming data.",
+    projects: [
+      {
+        name: "Chase Prediction",
+        description: "Prediction model to determine the chances of winning an IPL chase based on match data.",
+        link: "https://github.com/nupsea/mlzc-ipl-pred"
+      },
+      {
+        name: "PyFlink Score Publisher",
+        description: "Real-time T20 match score publisher for Chase Prediction, using Apache PyFlink.",
+        link: "https://github.com/nupsea/cric-chase-pred"
+      },
+      {
+        name: "Flink Score Publisher",
+        description: "Real-time T20 match score publisher for Chase Prediction, using Apache Flink (Java).",
+        link: "https://github.com/nupsea/flink-score-pub"
+      }
+    ]
+  },
+  {
+    title: "🔎 GenAI Projects",
+    description: "Retrieval-Augmented Generation (RAG) based assistants and Agentic workflows.",
+    projects: [
+      {
+        name: "Doc-Mate",
+        description: "Intelligent document assistant powered by GenAI and RAG.",
+        link: "https://github.com/nupsea/doc-mate"
+      },
+      {
+        name: "Content Pal",
+        description: "Streaming media content assistant using RAG for hybrid search and recommendations.",
+        link: "https://github.com/nupsea/content-pal"
+      }
+    ]
+  },
+  {
+    title: "🤖 Other ML Projects",
+    description: "Traditional machine learning models and predictive analytics.",
+    projects: [
+      {
+        name: "Movie Rating Prediction",
+        description: "Machine learning model to predict movie ratings based on reviews and genre.",
+        link: "https://github.com/nupsea/mlzc-movie-pred"
+      }
+    ]
+  }
+];
+---
+
+<Layout>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-16 text-center">
+      <h1 class="text-4xl font-extrabold text-slate-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+        Data & AI Projects
+      </h1>
+      <p class="mt-5 max-w-xl mx-auto text-xl text-slate-500">
+        A curated collection of my work in machine learning, generative AI, and data engineering.
+      </p>
+    </header>
+
+    <div class="space-y-20">
+      {projectGroups.map((group) => (
+        <section>
+          <div class="mb-8">
+            <h2 class="text-3xl font-bold text-slate-900">{group.title}</h2>
+            <p class="mt-2 text-lg text-slate-600">{group.description}</p>
+          </div>
+          <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {group.projects.map((project) => (
+              <div class="group relative bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  {project.name}
+                </h3>
+                <p class="mt-4 text-slate-600 leading-relaxed">
+                  {project.description}
+                </p>
+                <div class="mt-8">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-500"
+                  >
+                    View on GitHub
+                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <!-- Placeholder Section -->
+    <section class="mt-32 bg-blue-600 rounded-3xl p-8 sm:p-16 text-center text-white overflow-hidden relative">
+      <div class="relative z-10">
+        <h2 class="text-3xl font-bold">What's Next?</h2>
+        <p class="mt-4 text-blue-100 text-lg max-w-2xl mx-auto">
+          I'm currently exploring Agentic RAG workflows and real-time observability in Flink clusters. 
+          New projects are added regularly as I experiment with new technologies.
+        </p>
+        <div class="mt-10">
+          <span class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50">
+            Coming Soon: Agentic Data Workflows
+          </span>
+        </div>
+      </div>
+      <!-- Decorative element -->
+      <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl opacity-50"></div>
+      <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-blue-700 rounded-full blur-3xl opacity-50"></div>
+    </section>
+  </div>
+</Layout>

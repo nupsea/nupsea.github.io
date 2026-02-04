@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const talks = [
+  {
+    title: "Building an AI Agent: Bookmate",
+    event: "Tech Talk",
+    date: "2025",
+    description: "A deep dive into building Bookmate, an intelligent book recommendation assistant powered by GenAI.",
+    link: "https://youtu.be/ELKLjiJHgzM?si=hfVWZ9d0mOaokqLt",
+    type: "Video"
+  }
+];
+---
+
+<Layout>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-16 text-center">
+      <h1 class="text-4xl font-extrabold text-slate-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+        Talks & Presentations
+      </h1>
+      <p class="mt-5 max-w-xl mx-auto text-xl text-slate-500">
+        Sharing knowledge on GenAI, Data Engineering, and System Design.
+      </p>
+    </header>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {talks.map((talk) => (
+        <div class="group relative bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+              {talk.type}
+            </span>
+            <span class="text-sm text-slate-500">{talk.date}</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+            {talk.title}
+          </h3>
+          <p class="mt-2 text-sm text-slate-500 font-medium">{talk.event}</p>
+          <p class="mt-4 text-slate-600 leading-relaxed">
+            {talk.description}
+          </p>
+          <div class="mt-8">
+            <a
+              href={talk.link}
+              target="_blank"
+              class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-500"
+            >
+              Watch / View
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
