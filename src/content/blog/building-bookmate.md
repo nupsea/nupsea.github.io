@@ -1,5 +1,5 @@
 ---
-title: "Building Bookmate: My Journey Creating an Open-Source AI Library Assistant"
+title: "Building Bookmate: Open Source AI Library Assistant"
 description: "A deep dive into building a self-hosted RAG application to converse with your personal book library, covering hybrid search, agents, MCP, and evaluation strategies."
 pubDate: "Feb 11 2026"
 ---
@@ -16,7 +16,7 @@ The problem? **Books are hard. We tend to forget the details.** Months after rea
 
 While tools like ChatGPT or Google's NotebookLM exist, I wanted something different. I wanted a solution that was:
 
-1. **Open Source**: So I could tweak the code and learn from the implementation.
+1. **Open-Source**: So I could tweak the code and learn from the implementation.
 2. **Self-Hosted**: So I could run it on my laptop without sending my personal data or private library into the cloud.
 
 ## The Tech Stack: Moving Beyond Simple Prompts
@@ -73,6 +73,6 @@ I'm currently working on expanding Bookmate to handle more formats. A major chal
 Bookmate is open source and available for you to run locally.
 
 - **GitHub**: [github.com/nupsea/book-mate](https://github.com/nupsea/book-mate)
-- **Watch the Talk**: You can see the full demo on the [DataEngBytes YouTube channel](https://www.youtube.com/@DataEngBytes).
+- **Watch the Talk**: You can see the full demo on the [DataEngBytes YouTube channel](https://youtu.be/ELKLjiJHgzM?si=6qvvco_HDtK_c8Mx).
 
 If you're building your own RAG pipelines, I'd love to hear how you are handling evaluation and search optimization. Feel free to reach out!
