@@ -3,12 +3,37 @@ import Layout from '../layouts/Layout.astro';
 
 const talks = [
   {
-    title: "Building an AI Agent: Bookmate",
-    event: "Tech Talk",
-    date: "2025",
+    title: "Bookmate: Building an AI Assistant",
+    event: "DataEngBytes Brisbane",
+    date: "Nov 2025",
     description: "A deep dive into building Bookmate, an intelligent book recommendation assistant powered by GenAI.",
     link: "https://youtu.be/ELKLjiJHgzM?si=hfVWZ9d0mOaokqLt",
-    type: "Video"
+    presentation: "/talks/bookmate.pdf",
+    type: "Video & Presentation"
+  },
+  {
+    title: "Realtime Chase Prediction",
+    event: "DataEngBytes Brisbane",
+    date: "Apr 2025",
+    description: "Architecting and building a real-time chase prediction engine using Apache Flink for high-throughput data streams.",
+    link: "/talks/realtime-chase-prediction.pdf",
+    type: "Presentation"
+  },
+  {
+    title: "Intro to Flink",
+    event: "Data & Analytics Wednesday Sydney",
+    date: "Apr 2021",
+    description: "A comprehensive introduction to Apache Flink, stream processing concepts, and building robust real-time data systems.",
+    link: "/talks/intro-to-flink.pdf",
+    type: "Presentation"
+  },
+  {
+    title: "Airflow for Data Pipelines",
+    event: "MeasureCamp Sydney",
+    date: "Oct 2019",
+    description: "Leveraging Apache Airflow for robust orchestration and management of complex data engineering pipelines.",
+    link: "/talks/airflow-data-pipelines.pdf",
+    type: "Presentation"
   }
 ];
 ---
@@ -40,17 +65,29 @@ const talks = [
           <p class="mt-4 text-slate-600 leading-relaxed">
             {talk.description}
           </p>
-          <div class="mt-8">
+          <div class="mt-8 flex flex-wrap gap-4">
             <a
               href={talk.link}
               target="_blank"
               class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-500"
             >
-              Watch / View
+              {talk.type.includes('Video') ? 'Watch Video' : 'View Presentation'}
               <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
+            {talk.presentation && (
+              <a
+                href={talk.presentation}
+                target="_blank"
+                class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-500"
+              >
+                View Slides
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            )}
           </div>
         </div>
       ))}
