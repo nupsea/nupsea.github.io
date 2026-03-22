@@ -3,9 +3,35 @@ import Layout from '../layouts/Layout.astro';
 
 const projectGroups = [
   {
-    title: "🏏 Chase Prediction Projects",
-    description: "Predicting T20 match outcomes in real-time using streaming data.",
+    title: "🔎 GenAI Projects",
+    description: "Retrieval-Augmented Generation (RAG) based assistants and Agentic workflows.",
     projects: [
+      {
+        name: "Fly-O-Myte",
+        description: "The smart travel expense optimizer for Australian families. Tracks trips, builds price history, and gives clear booking advice.",
+        link: "https://github.com/nupsea/fly-o-myte"
+      },
+      {
+        name: "Doc-Mate",
+        description: "Intelligent document assistant powered by GenAI and RAG.",
+        link: "https://github.com/nupsea/doc-mate"
+      },
+      {
+        name: "Content Pal",
+        description: "Streaming media content assistant using RAG for hybrid search and recommendations.",
+        link: "https://github.com/nupsea/content-pal"
+      }
+    ]
+  },
+  {
+    title: "🛠️ ML and DE Projects",
+    description: "Machine learning models and data engineering toolkits.",
+    projects: [
+      {
+        name: "dkit",
+        description: "A data engineer's toolkit for schema inference, data profiling, SQL execution, validation, and pipeline scaffolding.",
+        link: "https://github.com/nupsea/dkit"
+      },
       {
         name: "Chase Prediction",
         description: "Prediction model to determine the chances of winning an IPL chase based on match data.",
@@ -20,29 +46,7 @@ const projectGroups = [
         name: "Flink Score Publisher",
         description: "Real-time T20 match score publisher for Chase Prediction, using Apache Flink (Java).",
         link: "https://github.com/nupsea/flink-score-pub"
-      }
-    ]
-  },
-  {
-    title: "🔎 GenAI Projects",
-    description: "Retrieval-Augmented Generation (RAG) based assistants and Agentic workflows.",
-    projects: [
-      {
-        name: "Doc-Mate",
-        description: "Intelligent document assistant powered by GenAI and RAG.",
-        link: "https://github.com/nupsea/doc-mate"
       },
-      {
-        name: "Content Pal",
-        description: "Streaming media content assistant using RAG for hybrid search and recommendations.",
-        link: "https://github.com/nupsea/content-pal"
-      }
-    ]
-  },
-  {
-    title: "🤖 Other ML Projects",
-    description: "Traditional machine learning models and predictive analytics.",
-    projects: [
       {
         name: "Movie Rating Prediction",
         description: "Machine learning model to predict movie ratings based on reviews and genre.",
