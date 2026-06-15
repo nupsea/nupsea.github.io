@@ -28,3 +28,7 @@ _backup/
 
 # Luminary related
 __preview-*
+
+# Luminary blog live-preview drafts (transient; never commit)
+src/content/blog/lmpreview-*
+public/blog/lmpreview-*
