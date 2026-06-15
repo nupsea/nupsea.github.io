@@ -18,4 +18,4 @@ I plan to use this space to document my learning and share projects related to:
 *   **Reliability & Observability**: Best practices for maintaining healthy data platforms.
 *   **GenAI Experiments**: Demos and breakdowns of my projects like *Book-Mate* and *Content-Pal*.
 
-Check out my [Projects](/projects) page to see what I've been working on. Keep learning.
+Check out my [Projects](/projects) page to see what I've been working on. Keep learning..
