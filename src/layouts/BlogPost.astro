@@ -1,6 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+// KaTeX styles for math rendered from $…$ / $$…$$ (remark-math + rehype-katex).
+// Self-hosted (bundled under 'self'); no CDN, so the site CSP is unchanged.
+import 'katex/dist/katex.min.css';
 
 type Props = CollectionEntry<'blog'>['data'];
 
