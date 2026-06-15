@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Local backup of old site
 _backup/
+
+# Luminary related
+__preview-*
