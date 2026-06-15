@@ -1,6 +1,6 @@
 ---
-title: "Micrograd #luminary"
-description: "Understand automatic differentiation and tiny neural networks by exploring the core concepts of gradients and model training. Learning from Andrej Karpathy's `micrograd` video tutorial. "
+title: "Micrograd "
+description: "Understand automatic differentiation and tiny neural networks by exploring the core concepts of gradients and model training. Learning from Andrej Karpathy's `micrograd` video tutorial. #luminary"
 pubDate: "Jun 15 2026"
 ---
 
