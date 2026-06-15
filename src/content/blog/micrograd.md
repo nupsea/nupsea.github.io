@@ -317,7 +317,17 @@ This is gradient descent in its simplest form.
 
 The update step is small on purpose. Many small steps are usually better than one big jump, especially when the loss surface is complicated.
 
+![image](/blog/micrograd/a86a3780-2ce9-4d47-9d22-65968d132533.png)
 
+The visualization above demonstrates the optimization process seen in the `train_it` function.
+
+1. **Loss Function ($$f(x)=x^2$$)**: Represents the error surface we want to minimize.
+2. **Gradient**: At any point, the slope ($$2x$$) tells us the direction of steepest increase.
+3. **Step**: We move in the opposite direction of the gradient:
+   $$x_{new} = x_{old} - \text{learning\_rate} \cdot \nabla f(x)$$
+4. **Convergence**: By iteratively nudging the parameters, we descend the slope towards the global minimum (where the gradient is zero).
+
+  
 
 ## Further references 
 
