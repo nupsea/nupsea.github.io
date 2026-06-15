@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const thoughts = (await getCollection('thoughts')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+function formatDate(date: Date) {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+---
+
+<Layout>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-16 text-center">
+      <h1 class="text-4xl font-extrabold text-slate-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+        Thoughts
+      </h1>
+      <p class="mt-5 max-w-xl mx-auto text-xl text-slate-500">
+        Exploring ideas beyond code. Philosophy, art, psychology, and random musings.
+      </p>
+    </header>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {thoughts.map((thought) => (
+        <article class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full relative group">
+          <div class="flex items-center gap-x-4 text-xs mb-4">
+            <time datetime={thought.data.pubDate.toISOString()} class="text-slate-500">
+              {formatDate(thought.data.pubDate)}
+            </time>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+            <a href={`/thoughts/${thought.slug}/`}>
+              <span class="absolute inset-0"></span>
+              {thought.data.title} &rarr;
+            </a>
+          </h3>
+          <p class="text-slate-600 leading-relaxed flex-grow">
+            {thought.data.description}
+          </p>
+        </article>
+      ))}
+    </div>
+    
+    <div class="mt-20 text-center border-t border-slate-200 pt-10">
+        <p class="text-slate-400 italic">More thoughts and collections coming soon...</p>
+    </div>
+  </div>
+</Layout>

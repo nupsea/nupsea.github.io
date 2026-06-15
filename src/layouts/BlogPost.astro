@@ -5,7 +5,13 @@ import Layout from '../layouts/Layout.astro';
 // Self-hosted (bundled under 'self'); no CDN, so the site CSP is unchanged.
 import 'katex/dist/katex.min.css';
 
-type Props = CollectionEntry<'blog'>['data'];
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+}
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
