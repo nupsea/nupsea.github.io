@@ -28,24 +28,24 @@ function formatDate(date: Date) {
 <Layout>
   <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="mb-10 text-center">
-      <div class="text-slate-500 mb-4">
+      <div class="text-slate-500 mb-4 font-mono text-sm">
         <time datetime={pubDate.toISOString()}>
           {formatDate(pubDate)}
         </time>
         {updatedDate && (
-          <div class="italic">
+          <div class="italic mt-1">
             Last updated on <time datetime={updatedDate.toISOString()}>{formatDate(updatedDate)}</time>
           </div>
         )}
       </div>
-      <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-4">{title}</h1>
-      <p class="text-xl text-slate-600 max-w-2xl mx-auto">{description}</p>
-      <hr class="mt-8 border-slate-200" />
+      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl mb-4 font-['Plus_Jakarta_Sans',sans-serif]">{title}</h1>
+      <p class="text-xl text-slate-400 max-w-2xl mx-auto">{description}</p>
+      <hr class="mt-8 border-slate-900" />
     </div>
 
-    {heroImage && <img width={1020} height={510} src={heroImage} alt="" class="rounded-xl shadow-lg mb-10 w-full" />}
+    {heroImage && <img width={1020} height={510} src={heroImage} alt="" class="rounded-xl shadow-lg mb-10 w-full border border-slate-800/80" />}
 
-    <div class="prose prose-lg prose-blue mx-auto">
+    <div class="prose prose-lg prose-invert prose-indigo mx-auto">
       <slot />
     </div>
   </article>

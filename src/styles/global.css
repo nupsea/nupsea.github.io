@@ -1,7 +1,35 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+  --color-brand-bg: #0a0f1d;
+  --color-brand-card: #111625;
+  --color-brand-border: #1e263b;
+  --color-brand-accent: #6366f1;
+}
+
 .prose a {
   text-decoration: underline;
-  @apply text-blue-600 hover:text-blue-800;
+  @apply text-indigo-400 hover:text-indigo-300;
+}
+
+.bg-dot-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Custom scrollbar for data techie aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0f1d;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e263b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
 }

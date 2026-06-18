@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout.astro';
 
 const projectGroups = [
   {
-    title: "🔎 GenAI Projects",
+    id: "genai",
+    title: "GenAI Projects",
     description: "Retrieval-Augmented Generation (RAG) based assistants and Agentic workflows.",
     projects: [
       {
@@ -34,7 +35,8 @@ const projectGroups = [
     ]
   },
   {
-    title: "🛠️ ML and DE Projects",
+    id: "mlde",
+    title: "ML & Data Engineering",
     description: "Machine learning models and data engineering toolkits.",
     projects: [
       {
@@ -68,40 +70,53 @@ const projectGroups = [
 ---
 
 <Layout>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <header class="mb-16 text-center">
-      <h1 class="text-4xl font-extrabold text-slate-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-20 text-center">
+      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl font-['Plus_Jakarta_Sans',sans-serif]">
         Data & AI Projects
       </h1>
-      <p class="mt-5 max-w-xl mx-auto text-xl text-slate-500">
+      <p class="mt-5 max-w-xl mx-auto text-lg text-slate-400">
         A curated collection of my work in machine learning, generative AI, and data engineering.
       </p>
     </header>
 
-    <div class="space-y-20">
+    <div class="space-y-24">
       {projectGroups.map((group) => (
-        <section>
-          <div class="mb-8">
-            <h2 class="text-3xl font-bold text-slate-900">{group.title}</h2>
-            <p class="mt-2 text-lg text-slate-600">{group.description}</p>
+        <section class="relative">
+          <div class="mb-10 flex items-center gap-3 pb-4 border-b border-slate-900">
+            {group.id === 'genai' ? (
+              <svg class="w-8 h-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            ) : (
+              <svg class="w-8 h-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+              </svg>
+            )}
+            <div>
+              <h2 class="text-2xl font-bold tracking-tight text-white font-['Plus_Jakarta_Sans',sans-serif]">{group.title}</h2>
+              <p class="mt-1 text-sm text-slate-400">{group.description}</p>
+            </div>
           </div>
           <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {group.projects.map((project) => (
-              <div class="group relative bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                  {project.name}
-                </h3>
-                <p class="mt-4 text-slate-600 leading-relaxed">
-                  {project.description}
-                </p>
-                <div class="mt-8">
+              <div class="group relative bg-[#111625] border border-slate-800/80 rounded-xl p-8 shadow-sm hover:border-slate-700/80 hover:shadow-[0_4px_25px_rgba(99,102,241,0.05)] transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div>
+                  <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors font-['Plus_Jakarta_Sans',sans-serif]">
+                    {project.name}
+                  </h3>
+                  <p class="mt-4 text-slate-400 leading-relaxed text-sm">
+                    {project.description}
+                  </p>
+                </div>
+                <div class="mt-8 pt-4 border-t border-slate-900/60">
                   <a
                     href={project.link}
                     target="_blank"
-                    class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-500"
+                    class="inline-flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors group/link"
                   >
                     View on GitHub
-                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="ml-1.5 w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </a>
@@ -112,24 +127,5 @@ const projectGroups = [
         </section>
       ))}
     </div>
-
-    <!-- Placeholder Section -->
-    <section class="mt-32 bg-blue-600 rounded-3xl p-8 sm:p-16 text-center text-white overflow-hidden relative">
-      <div class="relative z-10">
-        <h2 class="text-3xl font-bold">What's Next?</h2>
-        <p class="mt-4 text-blue-100 text-lg max-w-2xl mx-auto">
-          I'm currently exploring Agentic RAG workflows and real-time observability in Flink clusters. 
-          New projects are added regularly as I experiment with new technologies.
-        </p>
-        <div class="mt-10">
-          <span class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50">
-            Coming Soon: Agentic Data Workflows
-          </span>
-        </div>
-      </div>
-      <!-- Decorative element -->
-      <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl opacity-50"></div>
-      <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-blue-700 rounded-full blur-3xl opacity-50"></div>
-    </section>
   </div>
 </Layout>
