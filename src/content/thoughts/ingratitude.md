@@ -17,4 +17,16 @@ Just as steady was the not so quiet guidance. It was an environment of subtle di
 
 I dearly miss that warmth of love. The memories keep pulling me into a bottomless sea—hard to swim out and come up for air. Maybe that’s what sorrow is: a whirlpool. It is what we are left to bear—carrying the burden all along for our ingratitude.
 
-**Know one's Karma.** *it truly belongs to us..*
+How do we proceed from here?
+
+> Know your karma. It truly belongs to us.
+
+Our actions are driven by our thoughts, and our thoughts are shaped by our environment and state of mind—our energy, health, connections, knowledge, and past experiences. What drove us yesterday might not drive us today, and what didn’t move us then might move us now.
+
+> Inculcate gratitude. Direct it inward first, then outward.
+
+I am deeply grateful to have known you and to have shared such a meaningful part of my life with you. Where would I even be without you?
+
+I am so glad my kids had the chance to play with you and feel that same warmth.
+
+Most of all, I take comfort knowing that you will always remain with me — my **north star**!
