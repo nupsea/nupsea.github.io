@@ -21,7 +21,7 @@ I dearly miss that warmth of love. The memories keep pulling me into a bottomles
 
 The question is: *How do I trudge forward from here?*
 
-Wisdom from the ONE, you consider supreme:
+Wisdom from the ONE:
 
 > Know your karma. It truly belongs to you.
 
