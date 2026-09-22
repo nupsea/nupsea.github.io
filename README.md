@@ -1,6 +1,6 @@
 # nupsea.github.io
 
-Personal portfolio, technical blog, and project showcase for **Anup Sethuram** — Data Platform Engineer exploring scalable data systems, streaming architectures, and Generative AI workflows.
+Personal portfolio, technical blog, and project showcase for **Anup Sethuram** — Data Platform Engineer building scalable data platforms and AI applications.
 
 Deployed live at [nupsea.github.io](https://nupsea.github.io).
 
