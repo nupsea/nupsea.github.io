@@ -3,17 +3,36 @@ import { getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-	const thoughts = await getCollection('thoughts');
-	return thoughts.map((thought) => ({
-		params: { slug: thought.slug },
-		props: thought,
-	}));
+	const thoughts = (await getCollection('thoughts')).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	);
+
+	return thoughts.map((thought, index) => {
+		const nextPost = index > 0 ? { slug: thoughts[index - 1].slug, title: thoughts[index - 1].data.title } : undefined;
+		const prevPost = index < thoughts.length - 1 ? { slug: thoughts[index + 1].slug, title: thoughts[index + 1].data.title } : undefined;
+
+		return {
+			params: { slug: thought.slug },
+			props: { thought, prevPost, nextPost },
+		};
+	});
 }
 
-const thought = Astro.props;
-const { Content } = await thought.render();
+const { thought, prevPost, nextPost } = Astro.props;
+const { Content, headings } = await thought.render();
+
+const words = thought.body ? thought.body.trim().split(/\s+/).length : 0;
+const readingMinutes = Math.max(1, Math.ceil(words / 200));
 ---
 
-<BlogPost {...thought.data}>
+<BlogPost
+	{...thought.data}
+	readingMinutes={readingMinutes}
+	headings={headings}
+	prevPost={prevPost ? { slug: `../thoughts/${prevPost.slug}`, title: prevPost.title } : undefined}
+	nextPost={nextPost ? { slug: `../thoughts/${nextPost.slug}`, title: nextPost.title } : undefined}
+	backUrl="/thoughts"
+	backLabel="Back to thoughts"
+>
 	<Content />
 </BlogPost>

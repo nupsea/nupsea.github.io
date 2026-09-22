@@ -3,17 +3,48 @@ import { getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+	const posts = (await getCollection('blog')).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	);
+
+	return posts.map((post, index) => {
+		const nextPost = index > 0 ? { slug: posts[index - 1].slug, title: posts[index - 1].data.title } : undefined;
+		const prevPost = index < posts.length - 1 ? { slug: posts[index + 1].slug, title: posts[index + 1].data.title } : undefined;
+
+		return {
+			params: { slug: post.slug },
+			props: { post, prevPost, nextPost },
+		};
+	});
 }
 
-const post = Astro.props;
-const { Content } = await post.render();
+const { post, prevPost, nextPost } = Astro.props;
+const { Content, headings } = await post.render();
+
+// Safe reading time calculation
+const words = post.body ? post.body.trim().split(/\s+/).length : 0;
+const readingMinutes = Math.max(1, Math.ceil(words / 200));
+
+// Safe project and topic inference if not explicitly provided
+const isLuminary = post.slug.includes('luminary') || post.data.title.toLowerCase().includes('luminary');
+const inferredProject = post.data.project || (isLuminary ? 'Luminary' : undefined);
+const inferredSeries = post.data.series || (isLuminary ? 'Luminary Flow' : undefined);
+
+let tags = post.data.tags || [];
+if (tags.length === 0 && isLuminary) {
+	tags = ['Luminary', 'Local AI', 'RAG'];
+}
 ---
 
-<BlogPost {...post.data}>
+<BlogPost
+	{...post.data}
+	tags={tags}
+	project={inferredProject}
+	series={inferredSeries}
+	readingMinutes={readingMinutes}
+	headings={headings}
+	prevPost={prevPost}
+	nextPost={nextPost}
+>
 	<Content />
 </BlogPost>

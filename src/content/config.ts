@@ -8,6 +8,10 @@ const blog = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
+		tags: z.array(z.string()).default([]),
+		project: z.string().optional(),
+		series: z.string().optional(),
+		featured: z.boolean().default(false),
 	}),
 });
 
@@ -19,6 +23,7 @@ const thoughts = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
+		tags: z.array(z.string()).default([]),
 	}),
 });
 

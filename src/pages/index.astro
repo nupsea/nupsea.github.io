@@ -18,14 +18,15 @@ const talks = [
 
 const featuredProjects = [
   {
+    name: "Luminary",
+    description: "A local-first active learning cockpit combining document reader, cited RAG Q&A, and FSRS spaced repetition.",
+    link: "https://github.com/nupsea/luminary",
+    blogLink: "/blog?filter=luminary"
+  },
+  {
     name: "Doc-Mate",
     description: "Intelligent document assistant powered by GenAI and RAG.",
     link: "https://github.com/nupsea/doc-mate"
-  },
-  {
-    name: "Content-Pal",
-    description: "RAG-style streaming content assistant for films and availability.",
-    link: "https://github.com/nupsea/content-pal"
   },
   {
     name: "Flink Score Publisher",
@@ -104,7 +105,7 @@ const featuredProjects = [
             {talks.map((talk) => (
               <div class="relative bg-[#111625] p-6 rounded-xl border border-slate-800/80 shadow-sm hover:border-slate-700/80 hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 group">
                 <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors font-['Plus_Jakarta_Sans',sans-serif]">
-                  <a href={talk.link} target="_blank">
+                  <a href={talk.link} target="_blank" rel="noopener noreferrer">
                     <span class="absolute inset-0"></span>
                     {talk.title}
                   </a>
@@ -141,19 +142,24 @@ const featuredProjects = [
           <article class="flex flex-col items-start justify-between bg-[#111625] border border-slate-800/80 p-8 rounded-xl hover:border-slate-700/80 hover:shadow-[0_4px_25px_rgba(99,102,241,0.05)] transition-all duration-300 group min-h-[200px]">
             <div class="w-full">
               <h3 class="text-xl font-bold leading-6 text-white group-hover:text-indigo-400 transition-colors font-['Plus_Jakarta_Sans',sans-serif]">
-                <a href={project.link} target="_blank">
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
                   {project.name}
                 </a>
               </h3>
               <p class="mt-4 text-sm leading-6 text-slate-400">{project.description}</p>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-900/60 w-full">
-              <a href={project.link} target="_blank" class="inline-flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300 group/link">
+            <div class="mt-6 pt-4 border-t border-slate-900/60 w-full flex items-center justify-between flex-wrap gap-2">
+              <a href={project.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300 group/link">
                 View Project
                 <svg class="ml-1 w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
+              {project.blogLink && (
+                <a href={project.blogLink} class="inline-flex items-center text-xs font-mono font-medium text-slate-400 hover:text-indigo-300 transition-colors">
+                  Blog Series &rarr;
+                </a>
+              )}
             </div>
           </article>
         ))}

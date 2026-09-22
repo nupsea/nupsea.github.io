@@ -1,18 +1,46 @@
 ---
 import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+}
+
+const {
+	title = "Anup Sethuram | Data Platform Engineer",
+	description = "Building scalable data systems and exploring Generative AI workflows.",
+	ogImage = "/favicon.svg",
+} = Astro.props;
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const navLinks = [
+	{ href: "/", label: "Home", isActive: pathname === "/" },
+	{ href: "/projects", label: "Projects", isActive: pathname.startsWith("/projects") },
+	{ href: "/talks", label: "Talks", isActive: pathname.startsWith("/talks") },
+	{ href: "/blog", label: "Blog", isActive: pathname.startsWith("/blog") },
+	{ href: "/thoughts", label: "Thoughts", isActive: pathname.startsWith("/thoughts") },
+];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Anup Sethuram | Data Platform Engineer</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta
 			http-equiv="Content-Security-Policy"
-			content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com;"
+			content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com;"
 		/>
 		<meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -46,46 +74,35 @@ import "../styles/global.css";
 		>
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex justify-between h-16">
-					<div class="flex">
+					<div class="flex items-center">
 						<a
 							href="/"
-							class="flex-shrink-0 flex items-center font-bold text-xl tracking-wider text-white hover:text-indigo-400 transition-colors font-mono"
+							class="flex-shrink-0 flex items-center font-bold text-xl tracking-wider text-white hover:text-indigo-400 transition-colors font-mono mr-6"
 						>
 							AnSe.
 						</a>
-						<div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-							<a
-								href="/"
-								class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-400 hover:text-slate-200 hover:border-slate-800 transition-all"
-								>Home</a
-							>
-							<a
-								href="/projects"
-								class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-400 hover:text-slate-200 hover:border-slate-800 transition-all"
-								>Projects</a
-							>
-							<a
-								href="/talks"
-								class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-400 hover:text-slate-200 hover:border-slate-800 transition-all"
-								>Talks</a
-							>
-							<a
-								href="/blog"
-								class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-400 hover:text-slate-200 hover:border-slate-800 transition-all"
-								>Blog</a
-							>
-							<a
-								href="/thoughts"
-								class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-400 hover:text-slate-200 hover:border-slate-800 transition-all"
-								>Thoughts</a
-							>
+						<div class="hidden sm:flex sm:space-x-6">
+							{navLinks.map((link) => (
+								<a
+									href={link.href}
+									class={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all ${
+										link.isActive
+											? "border-indigo-500 text-white"
+											: "border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700"
+									}`}
+								>
+									{link.label}
+								</a>
+							))}
 						</div>
 					</div>
-					<div class="flex items-center space-x-4">
+					<div class="flex items-center space-x-3">
 						<a
 							href="https://linkedin.com/in/anup-sethuram-3916106/"
 							target="_blank"
-							class="text-slate-400 hover:text-slate-200 transition-colors"
+							rel="noopener noreferrer"
+							class="text-slate-400 hover:text-slate-200 transition-colors p-1"
+							aria-label="LinkedIn Profile"
 						>
 							<span class="sr-only">LinkedIn</span>
 							<svg
@@ -100,7 +117,9 @@ import "../styles/global.css";
 						<a
 							href="https://github.com/nupsea"
 							target="_blank"
-							class="text-slate-400 hover:text-slate-200 transition-colors"
+							rel="noopener noreferrer"
+							class="text-slate-400 hover:text-slate-200 transition-colors p-1"
+							aria-label="GitHub Profile"
 						>
 							<span class="sr-only">GitHub</span>
 							<svg
@@ -113,10 +132,58 @@ import "../styles/global.css";
 									clip-rule="evenodd"></path></svg
 							>
 						</a>
+						<!-- Mobile menu button -->
+						<button
+							id="mobile-menu-button"
+							type="button"
+							class="sm:hidden p-2 text-slate-400 hover:text-white focus:outline-none"
+							aria-label="Toggle Navigation Menu"
+							aria-expanded="false"
+						>
+							<svg id="hamburger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+							</svg>
+							<svg id="close-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+							</svg>
+						</button>
 					</div>
 				</div>
 			</div>
+
+			<!-- Mobile navigation drawer -->
+			<div id="mobile-menu" class="hidden sm:hidden border-t border-slate-800/80 bg-[#0a0f1d] px-4 pt-2 pb-4 space-y-1">
+				{navLinks.map((link) => (
+					<a
+						href={link.href}
+						class={`block px-3 py-2 rounded-lg text-base font-medium transition-colors ${
+							link.isActive
+								? "bg-indigo-600/20 text-indigo-300 font-semibold"
+								: "text-slate-300 hover:bg-slate-800/60 hover:text-white"
+						}`}
+					>
+						{link.label}
+					</a>
+				))}
+			</div>
 		</nav>
+
+		<script is:inline>
+			const menuButton = document.getElementById("mobile-menu-button");
+			const mobileMenu = document.getElementById("mobile-menu");
+			const hamburgerIcon = document.getElementById("hamburger-icon");
+			const closeIcon = document.getElementById("close-icon");
+
+			if (menuButton && mobileMenu && hamburgerIcon && closeIcon) {
+				menuButton.addEventListener("click", () => {
+					const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+					menuButton.setAttribute("aria-expanded", String(!isExpanded));
+					mobileMenu.classList.toggle("hidden");
+					hamburgerIcon.classList.toggle("hidden");
+					closeIcon.classList.toggle("hidden");
+				});
+			}
+		</script>
 
 		<main class="flex-grow">
 			<slot />
