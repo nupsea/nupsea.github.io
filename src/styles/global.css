@@ -8,9 +8,31 @@
   --color-brand-accent: #6366f1;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .prose a {
   text-decoration: underline;
   @apply text-indigo-400 hover:text-indigo-300;
+}
+
+.prose img {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(30, 41, 59, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.prose blockquote {
+  border-left-color: #6366f1;
+  color: #cbd5e1;
+  font-style: italic;
+}
+
+.prose pre {
+  background-color: #111625 !important;
+  border: 1px solid #1e263b;
+  border-radius: 0.75rem;
 }
 
 .bg-dot-grid {
