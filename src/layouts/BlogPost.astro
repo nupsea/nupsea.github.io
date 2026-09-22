@@ -79,9 +79,13 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
       <div class="flex items-center gap-2 flex-wrap">
         {project && (
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
-            Project: {project}
-          </span>
+          <a
+            href={`/blog?filter=${project.toLowerCase()}`}
+            title={`View all ${project} articles`}
+            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 hover:bg-indigo-500/20 hover:border-indigo-500/40 transition-colors"
+          >
+            Project: {project} &rarr;
+          </a>
         )}
         {series && (
           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20">
