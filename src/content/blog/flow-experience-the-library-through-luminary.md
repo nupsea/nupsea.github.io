@@ -2,7 +2,10 @@
 title: "Flow — Experience the Library, Through Luminary"
 description: "Luminary intends to transform your learning into an immersive library experience with new integrations and workflows designed to inspire your next chapter."
 pubDate: "Sep 19 2026"
-updatedDate: "Sep 19 2026"
+updatedDate: "Sep 23 2026"
+project: "Luminary"
+series: "Luminary Chronicles"
+tags: ["library", "reading", "productivity", "lifestyle", "inspiration"]
 ---
 
 This is the experience I want reading with Luminary to feel like — not a feature list, but a day in the life: a trip to the library. The story runs on top; the italic line under each screenshot says what you are looking at.
@@ -30,6 +33,7 @@ It's time to head to the library. You open the app, and your friend is right the
 <p style="text-align:center;font-size:0.85rem;font-style:italic;opacity:0.75;margin:-1rem auto 1.75rem;">The launch screen.</p>
 
 You're greeted by huge wooden doors opening onto a magnificent campus. As you step in, a quote carved into a stone wall catches your eye.
+
 
 > *The unexamined life is not worth living.*
 > — Socrates
@@ -102,7 +106,7 @@ As you settle in with your partner for lunch, you have a relaxed, enjoyable meal
 
 <div style="clear:both;"></div>
 
-<img src="/blog/flow-experience-the-library-through-luminary/asset12.png" alt="The Luminary About card: version 0.12.11, public mode, and a note that your documents, notes and review history stay on your machine" style="float:right;max-width:220px;width:100%;margin:0.25rem 0 1.25rem 1.5rem;border-radius:0.5rem;" />
+<img src="/blog/flow-experience-the-library-through-luminary/asset12.png" alt="The Luminary About card: version 0.13.1, public mode, and a note that your documents, notes and review history stay on your machine" style="float:right;max-width:220px;width:100%;margin:0.25rem 0 1.25rem 1.5rem;border-radius:0.5rem;" />
 
 <div style="clear:both;"></div>
 
@@ -113,7 +117,7 @@ That's the flow I'm building toward — not another chat window bolted onto your
 
 ## What's new since my last post
 
-My last post was at 0.8.28; this walk is 0.12.11.
+My last post was at 0.8.28; this walk is 0.13.1.
 
 - **A library that looks like one:** covers and thumbnails, and filters by form, domain and register.
 - **One docked panel beside the page** for notes, chat, Explain, cards and teach-back, instead of five dialogs.
@@ -126,6 +130,6 @@ The full list is in the [changelog](https://github.com/nupsea/luminary/blob/mast
 
 ## Try it
 
-<p style="text-align:center;margin:1.5rem 0;"><a href="https://github.com/nupsea/luminary/releases/download/v0.12.11/Luminary_0.12.11_aarch64.dmg" style="display:inline-block;padding:0.75rem 1.5rem;border-radius:0.5rem;background:#4f46e5;color:#ffffff;font-weight:600;text-decoration:none;">Download for Mac Silicon</a></p>
+<p style="text-align:center;margin:1.5rem 0;"><a href="https://github.com/nupsea/luminary/releases/download/v0.13.1/Luminary_0.13.1_aarch64.dmg" style="display:inline-block;padding:0.75rem 1.5rem;border-radius:0.5rem;background:#4f46e5;color:#ffffff;font-weight:600;text-decoration:none;">Download for Mac Silicon</a></p>
 
 [Source on GitHub](https://github.com/nupsea/luminary) · [The two-minute tour](https://youtu.be/semZlbJde_Q) · [Back to the top](#flow-experience-the-library-through-luminary)
