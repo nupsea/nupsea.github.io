@@ -7,10 +7,6 @@ series: "Luminary Chronicles"
 tags: ["Luminary", "Learning", "Retrieval", "LoFi", "Evals", "Agentic", "Hybrid-RAG"]
 ---
 
-# Beyond Cosine Similarity:  Retrieval Engineering with Luminary
-
----
-
 Late last year, I stood on stage at a meetup in Brisbane talking about how to build a simple AI assistant to converse with your books. Since then, the AI landscape has evolved tremendously. Models have gotten so ridiculously smart that some days I feel like I barely even program anymore!
 
 Let’s be honest: there’s never been a better time to materialize your ideas into product. But alongside that excitement, there’s also a level of anxiety. 
