@@ -2,7 +2,7 @@
 title: "Flow — Experience the Library, Through Luminary"
 description: "Luminary intends to transform your learning into an immersive library experience with new integrations and workflows designed to inspire your next chapter."
 pubDate: "Sep 19 2026"
-updatedDate: "Sep 23 2026"
+updatedDate: "Nov 3 2026"
 project: "Luminary"
 series: "Luminary Chronicles"
 tags: ["library", "reading", "productivity", "lifestyle", "inspiration"]
@@ -10,7 +10,7 @@ tags: ["library", "reading", "productivity", "lifestyle", "inspiration"]
 
 This is the experience I want reading with Luminary to feel like — not a feature list, but a day in the life: a trip to the library. The story runs on top; the italic line under each screenshot says what you are looking at.
 
-**Jump to:** [Determination](#determination) · [The Road Ahead](#the-road-ahead) · [The Scout](#the-scout) · [Dig Deep](#dig-deep) · [Recall](#recall) · [Sense of Satisfaction](#sense-of-satisfaction) · [What's new](#whats-new-since-my-last-post)
+**Jump to:** [Determination](#determination) · [The Road Ahead](#the-road-ahead) · [The Scout](#the-scout) · [Dig Deep](#dig-deep) · [Recall](#recall) · [Sense of Satisfaction](#sense-of-satisfaction) · [Try it](#try-it)
 
 ## Determination
 
@@ -106,30 +106,43 @@ As you settle in with your partner for lunch, you have a relaxed, enjoyable meal
 
 <div style="clear:both;"></div>
 
-<img src="/blog/flow-experience-the-library-through-luminary/asset12.png" alt="The Luminary About card: version 0.13.1, public mode, and a note that your documents, notes and review history stay on your machine" style="float:right;max-width:220px;width:100%;margin:0.25rem 0 1.25rem 1.5rem;border-radius:0.5rem;" />
+<img src="/blog/flow-experience-the-library-through-luminary/asset12.png" alt="The Luminary About card: public mode, and a note that your documents, notes and review history stay on your machine" style="float:right;max-width:220px;width:100%;margin:0.25rem 0 1.25rem 1.5rem;border-radius:0.5rem;" />
 
 <div style="clear:both;"></div>
 
 
-It was never a lending library. It is all yours, in one folder.
-
-That's the flow I'm building toward — not another chat window bolted onto your files, but a library experience, built around retrieval you can actually trust, grounded in the books you brought with you. This release gets us a step closer.
-
-## What's new since my last post
-
-My last post was at 0.8.28; this walk is 0.13.1.
-
-- **A library that looks like one:** covers and thumbnails, and filters by form, domain and register.
-- **One docked panel beside the page** for notes, chat, Explain, cards and teach-back, instead of five dialogs.
-- **Citations open on the passage,** and every click works, not only the first.
-- **Fast or private, with a receipt** for every answer: engine, latency, cost, and what left your machine.
-- **Practice hides the answer until you commit;** teach-back is scored and can be retried.
-- **Dictation, O'Reilly URL ingest and EPUB figures.**
-
-The full list is in the [changelog](https://github.com/nupsea/luminary/blob/master/CHANGELOG.md).
+That's the learning flow Luminary intends to shed light upon.. a library experience, built around retrieval you can actually trust, grounded in the books you brought with you and the content your sourced.
 
 ## Try it
 
-<p style="text-align:center;margin:1.5rem 0;"><a href="https://github.com/nupsea/luminary/releases/download/v0.13.1/Luminary_0.13.1_aarch64.dmg" style="display:inline-block;padding:0.75rem 1.5rem;border-radius:0.5rem;background:#4f46e5;color:#ffffff;font-weight:600;text-decoration:none;">Download for Mac Silicon</a></p>
+Download the installer for your system, or browse the [latest release on GitHub](https://github.com/nupsea/luminary/releases/latest):
 
-[Source on GitHub](https://github.com/nupsea/luminary) · [The two-minute tour](https://youtu.be/semZlbJde_Q) · [Back to the top](#flow-experience-the-library-through-luminary)
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin:1.5rem 0;">
+  <a href="https://github.com/nupsea/luminary/releases/latest" data-download-match="_aarch64.dmg" style="display:inline-block;padding:0.75rem 1.25rem;border-radius:0.5rem;background:#4f46e5;color:#ffffff;font-weight:600;text-decoration:none;">Download for macOS (Apple Silicon)</a>
+  <a href="https://github.com/nupsea/luminary/releases/latest" data-download-match="_x64-setup.exe" style="display:inline-block;padding:0.75rem 1.25rem;border-radius:0.5rem;background:#0078d6;color:#ffffff;font-weight:600;text-decoration:none;">Download for Windows (x64)</a>
+  <a href="https://github.com/nupsea/luminary/releases/latest" data-download-match="_amd64.deb" style="display:inline-block;padding:0.75rem 1.25rem;border-radius:0.5rem;background:#e95420;color:#ffffff;font-weight:600;text-decoration:none;">Download for Linux (.deb)</a>
+  <a href="https://github.com/nupsea/luminary/releases/latest" data-download-match="_amd64.AppImage" style="display:inline-block;padding:0.75rem 1.25rem;border-radius:0.5rem;background:#334155;color:#ffffff;font-weight:600;text-decoration:none;">Download for Linux (AppImage)</a>
+</div>
+
+On Windows and Linux, you can also install the latest release with a single command:
+
+- **Windows (PowerShell):** `irm https://raw.githubusercontent.com/nupsea/luminary/master/scripts/get-luminary.ps1 | iex`
+- **Linux:** `curl -fsSL https://raw.githubusercontent.com/nupsea/luminary/master/scripts/get-luminary.sh | bash`
+
+<script>
+  fetch('https://api.github.com/repos/nupsea/luminary/releases/latest')
+    .then((res) => (res.ok ? res.json() : null))
+    .then((release) => {
+      if (!release || !Array.isArray(release.assets)) return;
+      document.querySelectorAll('a[data-download-match]').forEach((link) => {
+        const suffix = link.getAttribute('data-download-match');
+        const asset = release.assets.find((a) => a.name && a.name.endsWith(suffix));
+        if (asset && asset.browser_download_url) {
+          link.href = asset.browser_download_url;
+        }
+      });
+    })
+    .catch(() => {});
+</script>
+
+[Source on GitHub](https://github.com/nupsea/luminary) · [Latest Release](https://github.com/nupsea/luminary/releases/latest) · [Changelog](https://github.com/nupsea/luminary/blob/master/CHANGELOG.md) · [The two-minute tour](https://youtu.be/semZlbJde_Q) · [Back to the top](#reading-progress-bar)
